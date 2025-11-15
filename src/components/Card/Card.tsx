@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 const Basic: FC<Pokemon> = ({ name, sprites, id }) => {
   return (
-    <ViewTransition name={id.toString()}>
+    <ViewTransition name={`card-${name}-${id}`}>
       <Link href={getPokemonLink(id)} className={styles.wrapper}>
         <article className={styles.content}>
           <Image

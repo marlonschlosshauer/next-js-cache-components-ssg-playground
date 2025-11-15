@@ -5,13 +5,13 @@ import { Card } from "../Card/Card";
 import { FC } from "react";
 import styles from "./Popular.module.css";
 
-const ENTRIES = 15;
+const ENTRIES = 3;
 
 export interface PopularProps {
-  currentId: string;
+  id: string;
 }
 
-export const Popular: FC<PopularProps> = async ({ currentId }) => {
+export const Basic: FC<PopularProps> = async ({ id: currentId }) => {
   await connection();
 
   const data = await Promise.all(
@@ -38,7 +38,7 @@ export const Popular: FC<PopularProps> = async ({ currentId }) => {
   );
 };
 
-export const Fallback = () => (
+export const Skeleton = () => (
   <section className={styles.wrapper}>
     <h2>Also popular:</h2>
     <ul className={styles.content}>
@@ -53,4 +53,7 @@ export const Fallback = () => (
   </section>
 );
 
-export default Popular;
+export const Popular = {
+  Basic,
+  Skeleton,
+};

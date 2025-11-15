@@ -1,15 +1,12 @@
 import { Details } from "@/components/Details/Details";
-import Popular, { Fallback } from "@/components/Popular/Popular";
-import { Suspense } from "react";
+import { Popular } from "@/components/Popular/Popular";
 
-export default async function IdPage({ params }: PageProps<"/pokemon/[id]">) {
+export default async function IdPage({ params }: PageProps<"/[id]">) {
   const { id } = await params;
   return (
     <>
-      <Details id={id} />
-      <Suspense fallback={<Fallback />}>
-        <Popular currentId={id} />
-      </Suspense>
+      <Details.Basic id={id} />
+      <Popular.Basic id={id} />
     </>
   );
 }

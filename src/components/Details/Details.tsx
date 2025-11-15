@@ -7,7 +7,7 @@ export interface DetailsProps {
   id: string;
 }
 
-export const Details: FC<DetailsProps> = async ({ id }) => {
+export const Basic: FC<DetailsProps> = async ({ id }) => {
   const data = await getPokemon(id);
 
   if (!data) {
@@ -19,4 +19,17 @@ export const Details: FC<DetailsProps> = async ({ id }) => {
       <Card.Basic {...data} />
     </section>
   );
+};
+
+export const Skeleton: FC = () => {
+  return (
+    <section className={styles.wrapper}>
+      <Card.Skeleton />
+    </section>
+  );
+};
+
+export const Details = {
+  Basic,
+  Skeleton,
 };

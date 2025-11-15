@@ -1,5 +1,5 @@
 import { Details } from "@/components/Details/Details";
-import { Popular, PopularFallback } from "@/components/Popular/Popular";
+import Popular, { Fallback } from "@/components/Popular/Popular";
 import { Suspense, ViewTransition } from "react";
 
 export const generateStaticParams = () => {
@@ -18,7 +18,7 @@ export default async function IdPage({ params }: PageProps<"/pokemon/[id]">) {
   return (
     <ViewTransition>
       <Details id={id} />
-      <Suspense fallback={<PopularFallback />}>
+      <Suspense fallback={<Fallback />}>
         <Popular currentId={id} />
       </Suspense>
     </ViewTransition>

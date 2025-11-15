@@ -74,7 +74,12 @@ h6 {
   isolation: isolate;
 }
 
-li,
-ul {
+ul,
+ol {
+  padding: unset;
+  padding-inline-start: unset;
+}
+
+li {
   list-style: none;
 }

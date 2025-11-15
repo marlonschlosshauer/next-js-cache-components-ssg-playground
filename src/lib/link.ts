@@ -1,1 +1,1 @@
-export const getPokemonLink = (id: string | number) => `/pokemon/${id}`;
+export const getPokemonLink = (id: string | number) => `/${id}`;

@@ -1,9 +1,9 @@
 import { getPokemon } from "@/api/pokemon";
 import { connection } from "next/server";
 import { getIdxs } from "@/lib/idx";
-import { Slider } from "../Slider/Slider";
 import { Card } from "../Card/Card";
 import { FC } from "react";
+import styles from "./Popular.module.css";
 
 const ENTRIES = 15;
 
@@ -23,30 +23,34 @@ export const Popular: FC<PopularProps> = async ({ currentId }) => {
   }
 
   return (
-    <section>
+    <section className={styles.wrapper}>
       <h2>Also popular:</h2>
-      <Slider>
+      <ul className={styles.content}>
         {data
           .filter((p) => !!p)
-          .map((p, k) => (
-            <Card.Basic key={k} {...p} />
+          .map((pokemon, key) => (
+            <li key={key}>
+              <Card.Basic {...pokemon} />
+            </li>
           ))}
-      </Slider>
+      </ul>
     </section>
   );
 };
 
-export const PopularFallback = () => {
-  return (
-    <section>
-      <h2>Also popular:</h2>
-      <Slider>
-        {Array(ENTRIES)
-          .fill(null)
-          .map((_, key) => (
-            <Card.Skeleton key={key} />
-          ))}
-      </Slider>
-    </section>
-  );
-};
+export const Fallback = () => (
+  <section className={styles.wrapper}>
+    <h2>Also popular:</h2>
+    <ul className={styles.content}>
+      {Array(ENTRIES)
+        .fill(0)
+        .map((_, key) => (
+          <li key={key}>
+            <Card.Skeleton />
+          </li>
+        ))}
+    </ul>
+  </section>
+);
+
+export default Popular;

@@ -2,7 +2,6 @@ import { getPokemon } from "@/api/pokemon";
 import { FC } from "react";
 import { cacheLife } from "next/cache";
 import { Card } from "../Card/Card";
-import { Timestamp } from "../Timestamp/Timestamp";
 import styles from "./Details.module.css";
 
 export interface DetailsProps {
@@ -11,6 +10,7 @@ export interface DetailsProps {
 
 export const Details: FC<DetailsProps> = async ({ id }) => {
   "use cache";
+
   cacheLife("max");
 
   const data = await getPokemon(id);
@@ -22,7 +22,6 @@ export const Details: FC<DetailsProps> = async ({ id }) => {
   return (
     <section className={styles.wrapper}>
       <Card.Basic {...data} />
-      <Timestamp />
     </section>
   );
 };

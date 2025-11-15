@@ -1,3 +1,7 @@
+import { Details } from "@/components/Details";
+import { Popular, PopularFallback } from "@/components/Popular";
+import { Suspense } from "react";
+
 export const generateStaticParams = () => {
   return [
     {
@@ -10,12 +14,13 @@ export const generateStaticParams = () => {
 };
 
 export default async function IdPage({ params }: PageProps<"/pokemon/[id]">) {
-  "use cache";
-
   const { id } = await params;
   return (
-    <section>
-      <h1>Pokemone with id {JSON.stringify(id)}:</h1>
-    </section>
+    <>
+      <Details id={id} />
+      <Suspense fallback={<PopularFallback />}>
+        <Popular />
+      </Suspense>
+    </>
   );
 }

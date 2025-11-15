@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid lightgray;
+  outline: 2px solid gray;
+  border-radius: 12px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+}
+
+.name {
+  font-size: 28px;
+  text-transform: capitalize;
+}
+
+.fallback {
+  height: 42px;
+  width: 144px;
+}

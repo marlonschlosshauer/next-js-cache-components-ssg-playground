@@ -1,8 +1,9 @@
 import { getPokemon } from "@/api/pokemon";
 import { FC } from "react";
-import { Card } from "./Card";
 import { cacheLife } from "next/cache";
-import { Timestamp } from "./Timestamp";
+import { Card } from "../Card/Card";
+import { Timestamp } from "../Timestamp/Timestamp";
+import styles from "./Details.module.css";
 
 export interface DetailsProps {
   id: string;
@@ -19,8 +20,8 @@ export const Details: FC<DetailsProps> = async ({ id }) => {
   }
 
   return (
-    <section className="flex flex-col gap-4">
-      <Card data={data} />
+    <section className={styles.wrapper}>
+      <Card.Basic {...data} />
       <Timestamp />
     </section>
   );

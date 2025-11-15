@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-items: center;
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid gray;
+  border-radius: 12px;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 32px;
+}
+
+.footer {
+  justify-self: flex-end;
+  text-align: end;
+}

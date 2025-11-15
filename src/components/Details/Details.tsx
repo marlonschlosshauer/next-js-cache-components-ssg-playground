@@ -1,6 +1,5 @@
 import { getPokemon } from "@/api/pokemon";
 import { FC } from "react";
-import { cacheLife } from "next/cache";
 import { Card } from "../Card/Card";
 import styles from "./Details.module.css";
 import { Stats } from "../Stats/Stats";
@@ -10,10 +9,6 @@ export interface DetailsProps {
 }
 
 export const Details: FC<DetailsProps> = async ({ id }) => {
-  "use cache";
-
-  cacheLife("max");
-
   const data = await getPokemon(id);
 
   if (!data) {
